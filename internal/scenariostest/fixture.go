@@ -7,7 +7,6 @@ import (
 	"net"
 	"net/http"
 	"os"
-	"strings"
 	"sync/atomic"
 	"testing"
 	"time"
@@ -15,28 +14,16 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-var skippedTestPipelineNames = func() map[string]struct{} {
-	names := []string{
-		"AKS RP Unit Tests",
-		"Flaky Tests Checks",
-	}
-
-	rv := map[string]struct{}{}
-	for _, name := range names {
-		rv[strings.ToLower(name)] = struct{}{}
-	}
-
-	return rv
-}()
+// Environment variable to skip slow tests.
+// This is useful for CI/CD pipelines to skip slow tests.
+const HTTPX_FAST = "HTTPX_FAST"
 
 func isFastEnvironment(t testing.TB) bool {
 	if testing.Short() {
 		return true
 	}
 
-	adoPipelineName := os.Getenv("BUILD_DEFINITIONNAME")
-	t.Logf("current ADO pipeline name: %q", adoPipelineName)
-	if _, ok := skippedTestPipelineNames[strings.ToLower(adoPipelineName)]; ok {
+	if _, exists := os.LookupEnv(HTTPX_FAST); exists {
 		return true
 	}
 
