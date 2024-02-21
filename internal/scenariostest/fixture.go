@@ -14,8 +14,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// Environment variable to skip slow tests.
-// This is useful for CI/CD pipelines to skip slow tests.
+// Set this environment variable to skip slow tests
 const HTTPX_FAST = "HTTPX_FAST"
 
 func isFastEnvironment(t testing.TB) bool {
