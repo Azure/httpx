@@ -1,3 +1,4 @@
+# Overview
 Package httpx provides out-of-box HTTP client/server settings and implementations.
 
 ## Why we need a dedicated package for using HTTP?
@@ -57,3 +58,6 @@ Below are the attack surfaces covered:
 
 [slowloris]: https://www.cloudflare.com/learning/ddos/ddos-attack-tools/slowloris/
 [R.U.D.Y]: https://www.cloudflare.com/learning/ddos/ddos-attack-tools/r-u-dead-yet-rudy/
+
+# Trademarks
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft’s Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.
